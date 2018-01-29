@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Street Tag</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="http://zeptojs.com/zepto.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a-scene>
+      <a-sphere cursor-listener radius="0.1" geometry="primitive:sphere" material="color:black"></a-sphere>
+      <a-camera>
+        <a-cursor place></a-cursor>
+      </a-camera>
+      <a-cylinder radius="32" height="0.01" material="color:white"></a-cylinder>
+    </a-scene>
+    <div class="wrapper" style="display:none">
+      <canvas width="256" height="256"></canvas>
+      <div class="tools">
+        <div class="color selected" data-color="#000000"></div>
+        <div class="color" data-color="#ffffff"></div>
+        <div class="color" data-color="#0000ff"></div>
+        <div class="color" data-color="#ff0000"></div>
+        <div class="color" data-color="#00ff00"></div>
+        <div class="color" data-color="#551a8b"></div>
+        <div class="color" data-color="#ffff00"></div>
+        <div class="tool" data-action="clear">CLR</div>
+        <div class="tool" data-action="publish">PUB</div>
+      </div>
+    </div>
+    <button type="button" class="a-enter-drawing">PEINDRE</button>
+  </body>
+</html>
