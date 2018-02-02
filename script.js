@@ -8,12 +8,13 @@ $(function () {
       last:{x:0, y:0},
       cursor:{x:0, y:0, z:0},
       update(event) { return {x:event.clientX - canvas.getBoundingClientRect().left, y:event.clientY - canvas.getBoundingClientRect().top} }
-    }, cursor = null
+    }, cursor = null, registered = false
 
   //Aframe components register
     AFRAME.registerComponent("cursor-listener", {init() { cursor = this.el }})
     AFRAME.registerComponent("place", {schema:{default:"", parse:AFRAME.utils.styleParser.parse},
-      init() {
+      update() {
+        if (registered) { return null } else { registered = true }
         function callback(e) {
           position.cursor = e.detail.intersection.point
           if (cursor) cursor.setAttribute("position", e.detail.intersection.point)
